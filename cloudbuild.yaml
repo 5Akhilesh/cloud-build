@@ -5,9 +5,7 @@ steps:
       - '-c'
       - |
         chmod +x ./script.sh
-        ./script.sh
-
-
+        ./shell.sh
   - name: 'python:3.9'
     entrypoint: python3.9
     args:
@@ -22,15 +20,10 @@ steps:
       - google-api-python-client
       - -t
       - './lib'
-
-
-  # Run the Python script
   - name: 'python:3.9'
     entrypoint: python3.9
     env:
       - 'PYTHONPATH=/workspace/lib'
-    args: ['./main.py']
-    
-    
+    args: ['./python.py']   
 options:
   logging: CLOUD_LOGGING_ONLY
